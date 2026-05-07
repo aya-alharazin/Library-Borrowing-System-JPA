@@ -182,6 +182,8 @@ public class BorrowController implements Initializable {
 
     @FXML
     private void borrowedBooksHandle(ActionEvent event) {
+        List<Borrow> borrows = borrowdao.findBorrowedBooks();
+        table.getItems().setAll(borrows);
     }
 
 
@@ -190,6 +192,18 @@ public class BorrowController implements Initializable {
 
     @FXML
     private void searchbyIds(ActionEvent event) {
+        Integer bookId = booksCombobox.getValue();
+        Integer studentId = studentsCombobox.getValue();
+        if (bookId == null || studentId == null) {
+            showWarningAlert(
+                    "Invalid Input",
+                    "Missing ids",
+                    "Please select both book id and student id"
+            );
+            return;
+        }
+        List<Borrow> borrows = borrowdao.searchByIds(bookId, studentId);
+        table.getItems().setAll(borrows);
     }
     
     

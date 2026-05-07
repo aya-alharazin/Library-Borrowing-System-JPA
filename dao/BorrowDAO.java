@@ -78,4 +78,37 @@ public class BorrowDAO {
             em.close();
         }
     }
+    
+    public List<Borrow> findBorrowedBooks() {
+        EntityManager em = null;
+        try {
+            em = JPAUtil.getEntityManager();
+            return em.createQuery(
+                    "select b from Borrow b where b.status = false",
+                    Borrow.class
+            ).getResultList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
+    
+    public List<Borrow> searchByIds(Integer bookId, Integer studentId) {
+        EntityManager em = null;
+        try {
+            em = JPAUtil.getEntityManager();
+            return em.createQuery(
+                    "select b from Borrow b where b.book.bookId = :bookId and b.student.studentId = :studentId",
+                    Borrow.class
+            )
+            .setParameter("bookId", bookId)
+            .setParameter("studentId", studentId)
+            .getResultList();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
 }
