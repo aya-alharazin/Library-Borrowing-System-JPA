@@ -22,20 +22,9 @@ public class BookDAO {
    
     
     public List<Integer> getAllbooksids(){
-        List<Integer> ids = new ArrayList<>();
-        try {
-            Connection conn = DBConnection.getInstance().getConnection();
-            String sql ="SELECT book_id FROM books";
-            Statement stat = conn.createStatement();
-            ResultSet rs = stat.executeQuery(sql);
-            while(rs.next()){
-                Integer book_id =rs.getInt("book_id");
-                ids.add(book_id);
-            }
-        } catch (SQLException ex) {
-            System.getLogger(BookDAO.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-        }
-        return ids;
+        
+        
+        
     }
     
     
