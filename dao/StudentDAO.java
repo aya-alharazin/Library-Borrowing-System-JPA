@@ -8,6 +8,8 @@ package dao;
 import config.JPAUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
+import models.Book;
+import models.Student;
 
 
 
@@ -26,11 +28,20 @@ public class StudentDAO {
         }finally{
             em.close();
         }
-        
-        
-        
-        
-        
     }
+    public Student findById(int Student_id){
+        EntityManager em=null;
+        try{
+            em =JPAUtil.getEntityManager();
+            Student s = em.find(Student.class, Student_id);
+            return s;
+        }finally{
+            em.close();
+        }
+    }        
+        
+        
+        
+    
     
 }

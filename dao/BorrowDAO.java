@@ -45,14 +45,14 @@ public class BorrowDAO {
     }
     
     
-//    public boolean updateOne(Borrow b){
-//        EntityManager em=null;
-//        try{
-//            
-//        }finally{
-//            em.close();
-//        }
-//    }
+    public boolean updateOne(Borrow b){
+        EntityManager em=null;
+        try{
+            
+        }finally{
+            em.close();
+        }
+    }
     
     
 //    public boolean deleteOne(Borrow b){

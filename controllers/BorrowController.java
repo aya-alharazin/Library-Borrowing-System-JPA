@@ -9,6 +9,7 @@ import dao.BookDAO;
 import dao.BorrowDAO;
 import dao.StudentDAO;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -23,7 +24,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import models.Book;
 import models.Borrow;
+import models.Student;
 
 /**
  * FXML Controller class
@@ -116,8 +119,10 @@ public class BorrowController implements Initializable {
         if(borrowValidor()){
             Integer book_id = booksCombobox.getSelectionModel().getSelectedItem();
             Integer student_id = studentsCombobox.getSelectionModel().getSelectedItem();
-            String bd = borrowDate.getValue().toString();
-            Borrow b=new Borrow(student_id, book_id, bd);
+            Book book = bookdao.findById(book_id);
+            Student student=studentdao.findById(student_id);
+            LocalDate bd = borrowDate.getValue();
+            Borrow b=new Borrow(student, book, bd);
             boolean success = borrowdao.insertOne(b);
             if(success){
                 clear();
