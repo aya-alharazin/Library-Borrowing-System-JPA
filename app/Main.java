@@ -4,6 +4,7 @@
  */
 package app;
 
+import config.JPAUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,6 +32,11 @@ public class Main extends Application{
         stage.setScene(s);
         stage.setTitle("Library Management System");
         stage.show();
+    }
+
+    @Override
+    public void stop() throws Exception {
+        JPAUtil.closeEMF();
     }
     
     
