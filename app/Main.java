@@ -4,15 +4,11 @@
  */
 package app;
 
-
-import config.DBConnection;
-import java.sql.SQLException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.sql.Connection;
 
 
 
@@ -38,14 +34,7 @@ public class Main extends Application{
     }
     
     
-    @Override
-    public void stop()  {
-        try {
-            DBConnection.getInstance().closeConnection();
-        } catch (SQLException ex) {
-            System.getLogger(Main.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
-        }
-    }
+    
 
     
 }
