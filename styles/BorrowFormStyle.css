@@ -174,7 +174,7 @@
 
 /* COMBOBOX */
 .combo-box, .combo-box-base {
-    -fx-background-color: #0f172a;
+    -fx-background-color: white;
 }
 
 /* Text shown in the closed combo box */
@@ -182,8 +182,8 @@
 .combo-box .button-cell,
 .combo-box-base .list-cell,
 .combo-box-base .button-cell {
-    -fx-text-fill: white;
-    -fx-background-color: #0f172a;
+    -fx-text-fill: black;
+    -fx-background-color: white;
 }
 
 /* Editor text for editable combo boxes */
@@ -194,12 +194,12 @@
 
 /* Dropdown list background + cells */
 .combo-box-popup .list-view {
-    -fx-background-color: #0f172a;
+    -fx-background-color: white;
 }
 
 .combo-box-popup .list-view .list-cell {
     -fx-text-fill: black;
-    -fx-background-color: #0f172a;
+    -fx-background-color: white;
 }
 
 .combo-box-popup .list-view .list-cell:selected,
@@ -209,9 +209,9 @@
 }
 
 .combo-box .arrow-button {
-    -fx-background-color: #0f172a;
+    -fx-background-color: white;
 }
 
 .combo-box .arrow {
-    -fx-background-color: white;
+    -fx-background-color: black;
 }
