@@ -146,31 +146,25 @@ public class BorrowController implements Initializable {
 
     @FXML
     private void returnHandle(ActionEvent event) {   
-//        Borrow b = table.getSelectionModel().getSelectedItem();
-//        if(b == null){
-//            showWarningAlert("No Selection", "No Record Selected",
-//                    "please select a borrow record from the table");
-//        }else{
-//            if(returnDate.getValue() == null || !status.isSelected()){
-//                showWarningAlert("invalid Input", "Missing data", 
-//                        "please select both return date and status");
-//            }else{
-//                b.setReturnDate(returnDate.getValue().toString());
-//                b.setStatus(status.isSelected());
-//                boolean success = borrowdao.updateOne(b);
-//                if(success){
-//                    showInfoAlert("success", "book returned successfully");
-//                    clear();
-//                    viewHandle(event);
-//                }
-//            }
-//        }
-//        
-//        
-//        
-        
-        
-        
+        Borrow b = table.getSelectionModel().getSelectedItem();
+        if(b == null){
+            showWarningAlert("No Selection", "No Record Selected",
+                    "please select a borrow record from the table");
+        }else{
+            if(returnDate.getValue() == null || !status.isSelected()){
+                showWarningAlert("invalid Input", "Missing data", 
+                        "please select both return date and status");
+            }else{
+                b.setReturnDate(returnDate.getValue());
+                b.setStatus(status.isSelected());
+                boolean success = borrowdao.updateOne(b);
+                if(success){
+                    showInfoAlert("success", "book returned successfully");
+                    clear();
+                    viewHandle(event);
+                }
+            }
+        }
     }
 
     @FXML

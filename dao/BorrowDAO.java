@@ -48,9 +48,17 @@ public class BorrowDAO {
     public boolean updateOne(Borrow b){
         EntityManager em=null;
         try{
-            
+            em = JPAUtil.getEntityManager();
+            em.getTransaction().begin();
+            em.merge(b);
+            em.getTransaction().commit();
+            return true;
+        }catch(Exception e){
+            return false;
         }finally{
-            em.close();
+            if(em != null){
+                em.close();
+            }
         }
     }
     
