@@ -63,15 +63,18 @@ public class BorrowDAO {
     }
     
     
-//    public boolean deleteOne(Borrow b){
-//        EntityManager em=null;
-//        try{
-//            
-//        }finally{
-//            em.close();
-//        }
-//    
-//    
-//    
-//    }
+    public boolean deleteOne(Borrow b){
+        EntityManager em=null;
+        try{
+            em = JPAUtil.getEntityManager();
+            em.getTransaction().begin();
+            em.remove(b);
+            em.getTransaction().commit();
+            return true;
+        }catch(Exception e){
+            return false;
+        }finally{
+            em.close();
+        }
+    }
 }
