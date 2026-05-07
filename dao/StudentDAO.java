@@ -4,13 +4,10 @@
  */
 package dao;
 
-import config.DBConnection;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+
+import config.JPAUtil;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 
 
@@ -21,7 +18,14 @@ import java.util.List;
 public class StudentDAO {
     
     public List<Integer> getAllStudentsids(){
-        
+        EntityManager em=null;
+        try{
+            em =JPAUtil.getEntityManager();
+            return em.createQuery("select s.studentId from Student s")
+                .getResultList();
+        }finally{
+            em.close();
+        }
         
         
         

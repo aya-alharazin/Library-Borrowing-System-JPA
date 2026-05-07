@@ -103,8 +103,13 @@ public class Borrow {
     public boolean getStatus()                     { return status; }
     public void setStatus(boolean status)          { this.status = status; }
 
-   
+   public int getStudentId(){
+       return  student.getStudentId();
+   }
 
+   public int getBookId(){
+       return  book.getBookId();
+    }
     @Override
     public String toString() {
         return

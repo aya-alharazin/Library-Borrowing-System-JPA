@@ -21,7 +21,7 @@ public class BookDAO {
         EntityManager em=null;
         try{
             em =JPAUtil.getEntityManager();
-            return em.createQuery("select b.bookId from Book b")
+            return em.createQuery("select b.bookId from Book b",Integer.class)
                 .getResultList();
         }finally{
             em.close();

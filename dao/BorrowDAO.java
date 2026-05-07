@@ -4,15 +4,11 @@
  */
 package dao;
 
-import config.DBConnection;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
+
+import config.JPAUtil;
 import java.util.List;
+import javax.persistence.EntityManager;
 import models.Borrow;
-import java.sql.PreparedStatement;
 /**
  *
  * @author aya
@@ -20,25 +16,33 @@ import java.sql.PreparedStatement;
 public class BorrowDAO {
 
     public List<Borrow> findAll(){
+        EntityManager em=null;
+        try{
+            em =JPAUtil.getEntityManager();
+            return em.createQuery("select b from Borrow b",Borrow.class)
+                .getResultList();
+        }finally{
+            em.close();
+        }
         
         
-        
     }
     
-    public boolean insertOne(Borrow b){
-    
-    
-    }
-    
-    
-    public boolean updateOne(Borrow b){
-    
-    }
-    
-    
-    public boolean deleteOne(Borrow b){
-    
-    
-    
-    
-    }
+//    public boolean insertOne(Borrow b){
+//    
+//    
+//    }
+//    
+//    
+//    public boolean updateOne(Borrow b){
+//    
+//    }
+//    
+//    
+//    public boolean deleteOne(Borrow b){
+//    
+//    
+//    
+//    
+//    }
+}
