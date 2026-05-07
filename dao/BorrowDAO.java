@@ -68,6 +68,7 @@ public class BorrowDAO {
         try{
             em = JPAUtil.getEntityManager();
             em.getTransaction().begin();
+            em.merge(b);
             em.remove(b);
             em.getTransaction().commit();
             return true;
