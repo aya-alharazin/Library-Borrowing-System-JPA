@@ -28,19 +28,40 @@ public class BorrowDAO {
         
     }
     
-//    public boolean insertOne(Borrow b){
-//    
-//    
-//    }
-//    
-//    
+    public boolean insertOne(Borrow b){
+        EntityManager em=null;
+        try{
+            em = JPAUtil.getEntityManager();
+            em.getTransaction().begin();
+            em.persist(b);
+            em.getTransaction().commit();
+            return true;
+        }catch(Exception e){
+            return false;    
+        
+        }finally{
+            em.close();
+        }
+    }
+    
+    
 //    public boolean updateOne(Borrow b){
-//    
+//        EntityManager em=null;
+//        try{
+//            
+//        }finally{
+//            em.close();
+//        }
 //    }
-//    
-//    
+    
+    
 //    public boolean deleteOne(Borrow b){
-//    
+//        EntityManager em=null;
+//        try{
+//            
+//        }finally{
+//            em.close();
+//        }
 //    
 //    
 //    

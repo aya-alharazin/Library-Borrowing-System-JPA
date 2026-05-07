@@ -113,27 +113,27 @@ public class BorrowController implements Initializable {
 
     @FXML
     private void borrowHandle(ActionEvent event) {
-//        if(borrowValidor()){
-//            Integer book_id = booksCombobox.getSelectionModel().getSelectedItem();
-//            Integer student_id = studentsCombobox.getSelectionModel().getSelectedItem();
-//            String bd = borrowDate.getValue().toString();
-//            Borrow b=new Borrow(student_id, book_id, bd);
-//            boolean success = borrowdao.insertOne(b);
-//            if(success){
-//                clear();
-//                viewHandle(event);
-//                showInfoAlert("success","BorrowAdded Successfully");
-//            }
-//        }else{
-//            
-//            showWarningAlert(
-//                    "Invalid input",
-//                    "Missing Data",
-//                    "Please select book id , student id and borrow date"
-//            );
-//            
-//            
-//        }
+        if(borrowValidor()){
+            Integer book_id = booksCombobox.getSelectionModel().getSelectedItem();
+            Integer student_id = studentsCombobox.getSelectionModel().getSelectedItem();
+            String bd = borrowDate.getValue().toString();
+            Borrow b=new Borrow(student_id, book_id, bd);
+            boolean success = borrowdao.insertOne(b);
+            if(success){
+                clear();
+                viewHandle(event);
+                showInfoAlert("success","BorrowAdded Successfully");
+            }
+        }else{
+            
+            showWarningAlert(
+                    "Invalid input",
+                    "Missing Data",
+                    "Please select book id , student id and borrow date"
+            );
+            
+            
+        }
         
         
         

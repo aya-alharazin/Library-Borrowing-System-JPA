@@ -8,6 +8,7 @@ package dao;
 import config.JPAUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
+import models.Book;
 
 
 
@@ -27,5 +28,15 @@ public class BookDAO {
             em.close();
         }
         
+    }
+    public Book findById(int book_id){
+        EntityManager em=null;
+        try{
+            em =JPAUtil.getEntityManager();
+            Book b = em.find(Book.class, book_id);
+            return b;
+        }finally{
+            em.close();
+        }
     }
 }
