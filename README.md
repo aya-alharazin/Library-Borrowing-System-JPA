@@ -78,7 +78,7 @@ src/
 
 ## Lecture Video
 
-[![Watch the lecture](https://img.shields.io/badge/YouTube-Watch%20Lecture-red?style=for-the-badge&logo=youtube)](https://youtu.be/qvqxeeke8dg?si=mSMy2p4cIlEaU5JE)
+[![Watch the lecture](https://img.shields.io/badge/YouTube-Watch%20Lecture-red?style=for-the-badge&logo=youtube)](https://youtu.be/VjxZYeUIuf8?si=s7Uh7wxW2puN4K7h)
 
 
 ---
